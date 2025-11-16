@@ -1,4 +1,4 @@
-import React from 'react';
+import Swal from 'sweetalert2'
 
 const AddCoffee = () => {
 
@@ -14,8 +14,28 @@ const AddCoffee = () => {
         const details = form.details.value;
         const photo = form.photo.value;
 
-        const newCoffee = {name, quantity, supplier, taste, category, details, photo}
+        const newCoffee = { name, quantity, supplier, taste, category, details, photo }
         console.log(newCoffee);
+
+        fetch('http://localhost:5000/coffee', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCoffee)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Coffee Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
     }
 
 
@@ -52,7 +72,7 @@ const AddCoffee = () => {
                         <input type="text" name='category' className="input w-full" placeholder="Category" />
                     </fieldset>
                     <fieldset className="fieldset md:w-1/2 ml-4">
-                     <legend className="fieldset-legend">Details</legend>
+                        <legend className="fieldset-legend">Details</legend>
                         <input type="text" name='details' className="input w-full" placeholder="Details" />
                     </fieldset>
                 </div>
