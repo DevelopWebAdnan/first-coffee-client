@@ -53,12 +53,12 @@ const CoffeeCard = ({ coffee }) => {
                 <div className="card-actions">
                     <div className="join join-vertical space-y-4">
                         <button className="btn join-item">View</button>
-                        <Link to={`/update/${_id}`}>
+                        <Link to={`/updateCoffee/${_id}`}>
                             <button className="btn join-item">Edit</button>
                         </Link>
                         <button
                             onClick={() => handleDelete(_id)}
-                            className="btn join-item">X</button>
+                            className="btn join-item bg-orange-500">X</button>
                     </div>
                 </div>
             </div>
