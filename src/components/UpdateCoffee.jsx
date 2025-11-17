@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -33,7 +32,7 @@ const UpdateCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.modifiedCount) {
+                if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Coffee Updated Successfully',
@@ -46,7 +45,7 @@ const UpdateCoffee = () => {
 
     return (
         <div className='bg-[#F4F3F0] p-24'>
-            <h2 className='text-3xl font-extrabold'>Update Coffee</h2>
+            <h2 className='text-3xl font-extrabold'>Update Coffee: {name}</h2>
             <form onSubmit={handleUpdatedCoffee}>
                 {/* form name and quantity row */}
                 <div className='md:flex mb-8'>
