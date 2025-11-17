@@ -41,7 +41,7 @@ const AddCoffee = () => {
 
     return (
         <div className='bg-[#F4F3F0] p-24'>
-            <h2>Add a Coffee</h2>
+            <h2 className='text-3xl font-extrabold'>Add a Coffee</h2>
             <form onSubmit={handleAddCoffee}>
                 {/* form name and quantity row */}
                 <div className='md:flex mb-8'>
